@@ -52,19 +52,19 @@ jobs:
       - name: Run tests
         run: mvn test
 
-      - name: Generate test coverage report
-        run: mvn jacoco:report
-
-      - name: Upload test coverage report
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-coverage-report
-          path: target/site/jacoco/
-          if-no-files-found: warn
-          retention-days: 30
-          compression-level: 9
-          overwrite: true
-          include-hidden-files: false
+#      - name: Generate test coverage report
+#        run: mvn jacoco:report
+#
+#      - name: Upload test coverage report
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: test-coverage-report
+#          path: target/site/jacoco/
+#          if-no-files-found: warn
+#          retention-days: 30
+#          compression-level: 9
+#          overwrite: true
+#          include-hidden-files: false
 
 #  docker:
 #    needs: build
