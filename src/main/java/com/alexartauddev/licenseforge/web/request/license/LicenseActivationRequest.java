@@ -1,4 +1,4 @@
-package com.alexartauddev.licenseforge.web.request;
+package com.alexartauddev.licenseforge.web.request.license;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;

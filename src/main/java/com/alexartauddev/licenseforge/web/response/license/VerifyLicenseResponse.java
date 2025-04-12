@@ -1,4 +1,4 @@
-package com.alexartauddev.licenseforge.web.response;
+package com.alexartauddev.licenseforge.web.response.license;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;

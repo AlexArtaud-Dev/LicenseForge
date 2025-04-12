@@ -1,6 +1,7 @@
 package com.alexartauddev.licenseforge.domain.license.entity;
 
 import jakarta.persistence.*;
+import jakarta.persistence.FetchType;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
@@ -45,7 +46,7 @@ public class License {
     @Column(nullable = false)
     private boolean revoked;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "license_activations", joinColumns = @JoinColumn(name = "license_id"))
     @Column(name = "hardware_id")
     @Builder.Default

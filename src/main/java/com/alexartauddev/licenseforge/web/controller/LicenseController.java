@@ -1,11 +1,11 @@
 package com.alexartauddev.licenseforge.web.controller;
 
 import com.alexartauddev.licenseforge.application.service.LicenseService;
-import com.alexartauddev.licenseforge.web.request.CreateLicenseRequest;
-import com.alexartauddev.licenseforge.web.request.LicenseActivationRequest;
+import com.alexartauddev.licenseforge.web.request.license.CreateLicenseRequest;
+import com.alexartauddev.licenseforge.web.request.license.LicenseActivationRequest;
 import com.alexartauddev.licenseforge.web.dto.license.LicenseDTO;
-import com.alexartauddev.licenseforge.web.response.LicenseResponse;
-import com.alexartauddev.licenseforge.web.response.VerifyLicenseResponse;
+import com.alexartauddev.licenseforge.web.response.license.LicenseResponse;
+import com.alexartauddev.licenseforge.web.response.license.VerifyLicenseResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -99,7 +99,6 @@ public class LicenseController {
         List<LicenseDTO> licenses = licenseService.getLicensesByProduct(productId);
         return ResponseEntity.ok(licenses);
     }
-
 
     @PostMapping("/verify")
     @Operation(

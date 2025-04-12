@@ -1,4 +1,4 @@
-package com.alexartauddev.licenseforge.web.exception;
+package com.alexartauddev.licenseforge.web.exception.license;
 
 public class LicenseNotFoundException extends RuntimeException {
 
