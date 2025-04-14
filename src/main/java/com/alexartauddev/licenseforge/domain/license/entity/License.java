@@ -29,13 +29,10 @@ public class License {
     private String licenseKey;
 
     @Column(nullable = false)
-    private String productId;
+    private UUID appId;
 
     @Column(nullable = false)
     private String customerId;
-
-    @Column(nullable = false)
-    private LocalDateTime createdAt;
 
     @Column
     private LocalDateTime expiresAt;
@@ -45,6 +42,12 @@ public class License {
 
     @Column(nullable = false)
     private boolean revoked;
+
+    @Column(nullable = false)
+    private LocalDateTime createdAt;
+
+    @Column(nullable = false)
+    private LocalDateTime updatedAt;
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "license_activations", joinColumns = @JoinColumn(name = "license_id"))
