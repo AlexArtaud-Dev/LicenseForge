@@ -5,6 +5,7 @@ import com.alexartauddev.licenseforge.web.dto.license.ActivationDTO;
 import com.alexartauddev.licenseforge.web.response.license.ActivationResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,6 +20,7 @@ import java.util.UUID;
 @RequestMapping("/api/v1/activations")
 @RequiredArgsConstructor
 @Tag(name = "Activations", description = "License activation management API")
+@SecurityRequirement(name = "bearerAuth")
 public class ActivationController {
 
     private final ActivationService activationService;

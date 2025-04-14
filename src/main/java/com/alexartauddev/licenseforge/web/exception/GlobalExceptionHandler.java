@@ -11,10 +11,7 @@ import com.alexartauddev.licenseforge.web.exception.realm.RealmNotFoundException
 import com.alexartauddev.licenseforge.web.exception.team.DuplicateTeamPermissionException;
 import com.alexartauddev.licenseforge.web.exception.team.TeamNotFoundException;
 import com.alexartauddev.licenseforge.web.exception.team.TeamPermissionNotFoundException;
-import com.alexartauddev.licenseforge.web.exception.user.DuplicateEmailException;
-import com.alexartauddev.licenseforge.web.exception.user.PasswordMismatchException;
-import com.alexartauddev.licenseforge.web.exception.user.PasswordsDoNotMatchException;
-import com.alexartauddev.licenseforge.web.exception.user.UserNotFoundException;
+import com.alexartauddev.licenseforge.web.exception.user.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -145,6 +142,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(DuplicateTeamPermissionException.class)
     public ResponseEntity<ErrorResponse> handleDuplicateTeamPermissionException(DuplicateTeamPermissionException ex) {
         log.error("Duplicate team permission: {}", ex.getMessage());
+        return buildErrorResponse(ex, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(UserTeamException.class)
+    public ResponseEntity<ErrorResponse> handleUserTeamException(UserTeamException ex) {
+        log.error("User team error: {}", ex.getMessage());
         return buildErrorResponse(ex, HttpStatus.BAD_REQUEST);
     }
 

@@ -8,6 +8,7 @@ import com.alexartauddev.licenseforge.web.response.realm.RealmListResponse;
 import com.alexartauddev.licenseforge.web.response.realm.RealmResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,7 @@ import java.util.UUID;
 @RequestMapping("/api/v1/realms")
 @RequiredArgsConstructor
 @Tag(name = "Realms", description = "Realm management API")
+@SecurityRequirement(name = "bearerAuth")
 public class RealmController {
 
     private final RealmService realmService;

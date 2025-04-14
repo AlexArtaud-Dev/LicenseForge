@@ -9,6 +9,7 @@ import com.alexartauddev.licenseforge.web.request.team.UpdateTeamPermissionReque
 import com.alexartauddev.licenseforge.web.response.team.TeamPermissionResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,7 @@ import java.util.UUID;
 @RequestMapping("/api/v1/team-permissions")
 @RequiredArgsConstructor
 @Tag(name = "Team Permissions", description = "Team permission management API")
+@SecurityRequirement(name = "bearerAuth")
 public class TeamPermissionController {
 
     private final TeamPermissionService teamPermissionService;
