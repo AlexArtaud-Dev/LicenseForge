@@ -541,7 +541,7 @@ public class LicenseServiceImplTest {
     void countActiveLicensesByAppId_ShouldReturnCount() {
         // Arrange
         LocalDateTime now = LocalDateTime.now();
-        when(licenseRepository.countActiveByAppId(appId, now)).thenReturn(5L);
+        when(licenseRepository.countActiveByAppId(eq(appId), any(LocalDateTime.class))).thenReturn(5L);
 
         // Act
         long result = licenseService.countActiveLicensesByAppId(appId);
