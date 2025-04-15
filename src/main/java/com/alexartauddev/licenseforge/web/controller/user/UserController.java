@@ -10,6 +10,7 @@ import com.alexartauddev.licenseforge.web.response.user.UserListResponse;
 import com.alexartauddev.licenseforge.web.response.user.UserResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,7 @@ import java.util.UUID;
 @RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
 @Tag(name = "Users", description = "User management API")
+@SecurityRequirement(name = "bearerAuth")
 public class UserController {
 
     private final UserService userService;

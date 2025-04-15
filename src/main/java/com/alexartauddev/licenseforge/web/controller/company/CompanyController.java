@@ -9,6 +9,7 @@ import com.alexartauddev.licenseforge.web.response.company.CompanyListResponse;
 import com.alexartauddev.licenseforge.web.response.company.CompanyResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -23,16 +24,10 @@ import java.util.UUID;
 @RequestMapping("/api/v1/companies")
 @RequiredArgsConstructor
 @Tag(name = "Companies", description = "Company management API")
+@SecurityRequirement(name = "bearerAuth")
 public class CompanyController {
 
     private final CompanyService companyService;
-
-    @PostMapping
-    @Operation(summary = "Create a new company")
-    public ResponseEntity<CompanyResponse> createCompany(@Valid @RequestBody CreateCompanyRequest request) {
-        CompanyDTO company = companyService.createCompany(request);
-        return new ResponseEntity<>(new CompanyResponse(company), HttpStatus.CREATED);
-    }
 
     @GetMapping("/{id}")
     @Operation(summary = "Get company by ID")

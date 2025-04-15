@@ -99,6 +99,15 @@ CREATE TABLE users
     CONSTRAINT pk_users PRIMARY KEY (id)
 );
 
+CREATE TABLE user_teams (
+                            id UUID NOT NULL,
+                            user_id UUID NOT NULL,
+                            team_id UUID NOT NULL,
+                            created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+                            CONSTRAINT pk_user_teams PRIMARY KEY (id),
+                            CONSTRAINT uc_user_teams_user_id_team_id UNIQUE (user_id, team_id)
+);
+
 ALTER TABLE team_permissions
     ADD CONSTRAINT uc_01dc9302a739e1cfe7e7d2d6f UNIQUE (team_id, app_id);
 
@@ -116,3 +125,7 @@ ALTER TABLE users
 
 ALTER TABLE license_activations
     ADD CONSTRAINT fk_license_activations_on_license FOREIGN KEY (license_id) REFERENCES licenses (id);
+
+
+CREATE INDEX idx_user_teams_user_id ON user_teams(user_id);
+CREATE INDEX idx_user_teams_team_id ON user_teams(team_id);

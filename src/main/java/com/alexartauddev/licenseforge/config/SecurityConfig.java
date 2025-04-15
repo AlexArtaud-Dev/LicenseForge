@@ -38,7 +38,8 @@ public class SecurityConfig {
                         .requestMatchers("/api/v1/auth/**").permitAll()
                         // Permit license validation endpoint
                         .requestMatchers("/api/v1/licenses/*/validate").permitAll()
-                        // Require authentication for all other endpoints
+                        // Permit company registration endpoint
+                        .requestMatchers("/api/v1/onboarding/company").permitAll()                        // Require authentication for all other endpoints
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session

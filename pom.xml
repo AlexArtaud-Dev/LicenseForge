@@ -84,6 +84,18 @@
 			<optional>true</optional>
 		</dependency>
 
+		<!-- Email -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+
+		<!-- Apache Commons Lang for String manipulation -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+
 		<!-- Added dependencies -->
 		<!-- Spring Web - Required for RESTful API -->
 		<dependency>

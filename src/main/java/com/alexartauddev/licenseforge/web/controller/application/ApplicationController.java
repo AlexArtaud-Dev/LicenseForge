@@ -7,6 +7,7 @@ import com.alexartauddev.licenseforge.web.response.application.ApplicationListRe
 import com.alexartauddev.licenseforge.web.response.application.ApplicationResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -19,8 +20,10 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/applications")
+@SecurityRequirement(name = "bearerAuth")
 @RequiredArgsConstructor
 @Tag(name = "Applications", description = "Application management API")
+@SecurityRequirement(name = "bearerAuth")
 public class ApplicationController {
 
     private final ApplicationService applicationService;

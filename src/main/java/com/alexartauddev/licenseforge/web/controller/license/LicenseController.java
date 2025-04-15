@@ -11,6 +11,7 @@ import com.alexartauddev.licenseforge.web.response.license.LicenseListResponse;
 import com.alexartauddev.licenseforge.web.response.license.LicenseResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +27,7 @@ import java.util.UUID;
 @RequestMapping("/api/v1/licenses")
 @RequiredArgsConstructor
 @Tag(name = "Licenses", description = "License management API")
+@SecurityRequirement(name = "bearerAuth")
 public class LicenseController {
 
     private final LicenseService licenseService;

@@ -38,7 +38,7 @@ public class CompanyServiceImpl implements CompanyService {
         }
 
         Company company = Company.builder()
-                .name(request.getName())
+                .name(request.getName()) // Make sure this matches your CreateCompanyRequest field
                 .realmId(request.getRealmId())
                 .quotaApps(request.getQuotaApps())
                 .quotaKeysPerApp(request.getQuotaKeysPerApp())

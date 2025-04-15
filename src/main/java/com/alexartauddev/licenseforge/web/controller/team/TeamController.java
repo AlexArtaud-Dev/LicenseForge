@@ -8,6 +8,7 @@ import com.alexartauddev.licenseforge.web.response.team.TeamListResponse;
 import com.alexartauddev.licenseforge.web.response.team.TeamResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,7 @@ import java.util.UUID;
 @RequestMapping("/api/v1/teams")
 @RequiredArgsConstructor
 @Tag(name = "Teams", description = "Team management API")
+@SecurityRequirement(name = "bearerAuth")
 public class TeamController {
 
     private final TeamService teamService;
